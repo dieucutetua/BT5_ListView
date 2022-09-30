@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -20,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     ListView listView;
     ArrayList<MatHang> arrayList;
     Adapter adapter;
+    Button btnThem;
+    EditText edtMatHang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,14 +31,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         arrayList = new ArrayList<>();
-        listView = findViewById(R.id.list_view);
+        btnThem = (Button)findViewById(R.id.them);
+        arrayList.add(new MatHang("Nước ép","Thái xanh đặc biệt ","6$",R.drawable.nuocep));
+        arrayList.add(new MatHang("Cà phê","Sữa,đen,bạc xỉu,... ","6$",R.drawable.caphe));
         arrayList.add(new MatHang("Sữa tươi  ","Trân châu,nóng,...","6$",R.drawable.trasua));
+        arrayList.add(new MatHang("Nước ngọt","Coca,Sting,... ","6$",R.drawable.nuocngot));
         arrayList.add(new MatHang("Trà sữa ","Truyền thống, socola,...","6$",R.drawable.trasua));
         arrayList.add(new MatHang("Trà đào","Nóng,lạnh,... ","6$",R.drawable.tradao));
-        arrayList.add(new MatHang("Cà phê","Sữa,đen,bạc xỉu,... ","6$",R.drawable.caphe));
-        arrayList.add(new MatHang("Nước ngọt","Coca,Sting,... ","6$",R.drawable.nuocngot));
-        arrayList.add(new MatHang("Nước ép","Thái xanh đặc biệt ","6$",R.drawable.nuocep));
-
         adapter = new Adapter(MainActivity.this, R.layout.items, arrayList);
         listView.setAdapter(adapter);
 
